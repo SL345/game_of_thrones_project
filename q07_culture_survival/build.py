@@ -1,3 +1,4 @@
+# %load q07_culture_survival/build.py
 import pandas as pd
 import numpy as np
 import sys,os
@@ -10,7 +11,7 @@ character_predictions = pd.read_csv('data/character-predictions.csv')
 cult = {
     'Summer Islands': ['summer islands', 'summer islander', 'summer isles'],
     'Ghiscari': ['ghiscari', 'ghiscaricari',  'ghis'],
-    'Asshai': ["asshai-i", 'asshai'],
+    'Asshai': ['asshai-i', 'asshai'],
     'Lysene': ['lysene', 'lyseni'],
     'Andal': ['andal', 'andals'],
     'Braavosi': ['braavosi', 'braavos'],
@@ -27,7 +28,10 @@ cult = {
 }
 
 
-def q07_culture_survival():
-    "write your solution here"
+def q07_culture_survival(val):
+    'write your solution here'
+    val = val.lower()
+    v = [k for (k, v) in cult.items() if val in v]
+    return v[0] if len(v) > 0 else val.title()
 
 
